@@ -1,0 +1,150 @@
+.SorteioTpl_sorteioTpl__2s2Wu{
+    -webkit-box-shadow:0 4px 3px rgba(0,0,0,.08);
+    box-shadow:0 4px 3px rgba(0,0,0,.08);
+    background-color:var(--incrivel-cardBg);
+    border-radius:10px;
+    padding:4px;
+    display:-moz-box;
+    display:flex;
+    -moz-box-align:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden
+}
+.SorteioTpl_sorteioTpl__2s2Wu:after{
+    font-family:bootstrap-icons;
+    position:absolute;
+    content:"";
+    font-size:1.6em;
+    color:#63ac49;
+    right:10px
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_imagemContainer__2-pl4{
+    position:relative;
+    overflow:hidden;
+    height:90px;
+    width:90px
+}
+.SorteioTpl_sorteioTpl__2s2Wu.SorteioTpl_destaque__3vnWR{
+    -moz-box-orient:vertical;
+    -moz-box-direction:normal;
+    flex-direction:column;
+    -moz-box-align:start;
+    align-items:start;
+    padding:0
+}
+.SorteioTpl_sorteioTpl__2s2Wu.SorteioTpl_destaque__3vnWR .SorteioTpl_imagem__2GXxI,.SorteioTpl_sorteioTpl__2s2Wu.SorteioTpl_destaque__3vnWR .SorteioTpl_imagemContainer__2-pl4{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    height:290px;
+    width:100%;
+    margin:0
+}
+.SorteioTpl_sorteioTpl__2s2Wu.SorteioTpl_destaque__3vnWR .SorteioTpl_info__t1BZr{
+    padding:4px 8px;
+    margin:5px 0
+}
+.SorteioTpl_sorteioTpl__2s2Wu.SorteioTpl_destaque__3vnWR:after{
+    display:none
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_imagem__2GXxI{
+    border-radius:10px;
+    object-fit:cover;
+    height:90px;
+    width:90px
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_imagemContainer__2-pl4{
+    margin-right:10px
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_imagemContainer__2-pl4:before{
+    border-bottom-left-radius:0!important;
+    border-bottom-right-radius:0!important
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_title__3RLtu{
+    color:var(--incrivel-bgLink);
+    -webkit-line-clamp:2!important;
+    margin-bottom:1px;
+    font-weight:500;
+    font-size:1.2em
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_descricao__1b7iL{
+    color:rgba(var(--incrivel-rgbaInvert),.7);
+    font-size:.75em;
+    max-width:96%;
+    margin:0
+}
+.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_descricao__1b7iL,.SorteioTpl_sorteioTpl__2s2Wu .SorteioTpl_title__3RLtu{
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:1;
+    display:-webkit-box;
+    overflow:hidden
+}
+.Header_appHeader__3lDdI{
+    position:sticky;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999
+}
+.Header_appHeader__3lDdI .Header_appHeaderContainer__MSPJv{
+    background-color:var(--incrivel-primaria);
+    color:var(--incrivel-primariaColor);
+    font-size:.9em
+}
+.Header_appHeader__3lDdI .Header_appHeaderWrap__2rUwY{
+    display:-moz-box;
+    display:flex;
+    -moz-box-pack:justify;
+    justify-content:space-between;
+    -moz-box-align:center;
+    align-items:center;
+    height:70px
+}
+.Header_appHeader__3lDdI .Header_appHeaderWrap__2rUwY .Header_btn-link__1ambC{
+    color:var(--incrivel-primariaColor);
+    padding:.1rem 0;
+    font-size:2em
+}
+.Header_appHeader__3lDdI .Header_appHeaderWrap__2rUwY .Header_btn-link__1ambC.Header_btn-notificacoes__3EZ5R{
+    font-size:1.3em
+}
+.Header_appHeader__3lDdI .Header_appHeaderBrand__3GlmQ{
+    max-height:70px;
+    max-width:185px
+}
+.ganhadorItem_ganhadorContainer__1Sbxm{
+    display:-moz-box;
+    display:flex;
+    -moz-box-align:center;
+    align-items:center;
+    -moz-box-pack:center;
+    justify-content:center;
+    -webkit-box-shadow:0 4px 3px rgba(0,0,0,.08);
+    box-shadow:0 4px 3px rgba(0,0,0,.08);
+    background-color:var(--incrivel-cardBg);
+    border-radius:10px;
+    padding:5px
+}
+.ganhadorItem_ganhadorContainer__1Sbxm .ganhadorItem_ganhadorFoto__324kH{
+    border:2px solid #dadada;
+    border-radius:10px;
+    position:relative;
+    margin-right:15px;
+    overflow:hidden;
+    height:56px;
+    min-width:56px;
+    max-width:56px;
+    border-radius: 50%;
+}
+.ganhadorItem_ganhadorContainer__1Sbxm .ganhadorItem_ganhadorFoto__324kH img {
+    width: 110%;
+}
+.ganhadorItem_ganhadorContainer__1Sbxm .ganhadorItem_ganhadorNome__2j_J-{
+    font-size:1.1em;
+    margin-bottom:0
+}
+.ganhadorItem_ganhadorContainer__1Sbxm .ganhadorItem_ganhadorDescricao__Z4kO2{
+    font-size:.85em;
+    margin-bottom:0;
+    opacity:.85
+}
