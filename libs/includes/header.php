@@ -9,7 +9,7 @@
                     <a class="minhas-compras" href="index"><i class="fas fa-home"></i>Início</a>
                 </div>
                 <div>
-                    <a class="minhas-compras" href="meus-numeros"><i class="fas fa-ticket"></i>Cotas</a>
+                    <a class="minhas-compras" href="meus-numeros"><i class="fas fa-ticket"></i>Meus Números</a>
                 </div>
                 <div>
                     <a class="minhas-compras" href="configuracoes"><i class="fas fa-cog"></i>Config</a>

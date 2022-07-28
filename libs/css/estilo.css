@@ -221,6 +221,10 @@ a:link, a:hover, a:visited, a:active {
     margin-bottom: 25px;
   }
 
+  .mw-100 {
+    max-width: 100px;
+  }
+
   .qrcode {
     display: none;
   }
