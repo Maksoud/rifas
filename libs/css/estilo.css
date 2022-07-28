@@ -162,6 +162,9 @@ a:link, a:hover, a:visited, a:active {
   .w100 {
     width: 100%;
   }
+  .p-30 {
+    padding: 30px;
+  }
 
   .dNone {
     display: none;

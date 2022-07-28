@@ -83,7 +83,8 @@
                     </table>
                 </div>
             </div>
-        <?php include("libs/includes/footer.php"); ?>
+            <?php include("libs/includes/footer.php"); ?>
+        </div>
     </div>
 </body>
 </html>

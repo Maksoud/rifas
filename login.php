@@ -61,7 +61,7 @@
                     
                     header("Refresh: 0, sorteio?6");
 
-                }else{
+                } else {
 
                     echo '<div class="alert alert-danger erro">
                             <strong>Erro ao logar!</strong> Os dados estão incorretos.
@@ -76,25 +76,30 @@
     ?>
     <div id="__next">
         <?php include("libs/includes/header.php"); ?>
-        <div class="container app-main app-form">
+        <div class="container app-main app-form" style="min-height: unset !important;">
             <form action="#" action="#" method="post" enctype="multipart/form-data">
                 <br>
-            <h2>Você deve fazer o login ou <a href="cadastro.php">Criar uma conta </a> para poder concorrer.</h2>
+                <h2>Você deve fazer o login ou <a href="cadastro.php">Criar uma conta </a> para poder concorrer.</h2>
                 <br>
-            <div class="perfil app-card card mb-2">
-                <div class="card-body">
-                    <div class="mb-2"><label for="email" class="form-label">Email</label>
-                    <input type="text" name="email" class="form-control" id="email" placeholder="Email" required="">
+                <div class="perfil app-card card mb-2 p-30">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Email" required="">
+                        </div>
+                        <div class="mb-4">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" name="senha" class="form-control" id="senha" placeholder="*********" required>
+                        </div>
+                        <button type="submit" name="logar" class="btn btn-dark">Acessar</button>
+                        <button class="btn btn-warning"><a href="cadastro.php" style="color:#000 !important">Criar conta</a></button>
+                    </div>
                 </div>
-                <div class="mb-2">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" name="senha" class="form-control" id="senha" placeholder="*********" required>
-                </div>
-                <button type="submit" name="logar" class="btn btn-dark">Acessar</button>
-                <button class="btn btn-warning"><a href="cadastro.php" style="color:#000 !important">Criar conta</a></button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-    <?php include("libs/includes/footer.php"); ?>
+    <div class="container-fluid">
+        <?php include("libs/includes/footer.php"); ?>
+    </div>
 </body>
 </html>
