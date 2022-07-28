@@ -86,7 +86,7 @@
 							</tr>
 						</thead>
 						<?php
-							foreach($importaUsuarios as $value){
+							foreach ($importaUsuarios as $value) {
 								echo '
 									<tr>
 										<td>
@@ -138,14 +138,16 @@
 							</tr>
 						</thead>
 						<?php
-							foreach($importaVendas as $value){
-								foreach($importaUsuarios as $usuarios){
-									if($value['idComprador'] == $usuarios['id']){
-										if($value['status'] == 0){
+							foreach ($importaVendas as $value) {
+								foreach ($importaUsuarios as $usuarios) {
+									if ($value['idComprador'] == $usuarios['id']) {
+										
+										if ($value['status'] == 0) {
 											$value['status'] = 'Pendente';
-										} elseif($value['status'] == 1){
+										} elseif ($value['status'] == 1) {
 											$value['status'] = 'Aprovado';
 										}
+
 										echo '
 										<tr>
 											<td>

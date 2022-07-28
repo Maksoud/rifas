@@ -4,41 +4,51 @@
     $idSorteio = $_SERVER['QUERY_STRING'];
 
     // seleciona as configurações do sorteio
-    try{
-        if($idSorteio != ''){
+    try {
+
+        if ($idSorteio != '') {
             $importaSorteios = $conexao->prepare("SELECT * from sorteios WHERE id = ".$idSorteio." AND status = 1");	    
-        }else {
+        } else {
             $importaSorteios = $conexao->prepare("SELECT * from sorteios WHERE status = 1");		
         }
+
         $importaSorteios->execute();
         $importaSorteios = $importaSorteios->fetchAll();
-        foreach($importaSorteios as $value){
+
+        foreach ($importaSorteios as $value) {
             $preco = $value['preco'];
             $cotaMaxima = $value['qtdCotas'];
             $statusSorteio = $value['status'];
         }
-    }catch (PDOWException $erro){ echo $erro;}
+
+    } catch (PDOWException $erro){ echo $erro;}
 
     // seleciona as cotas compradas e reservadas do sorteio
-    try{
-        if($idSorteio != ''){
+    try {
+
+        if ($idSorteio != '') {
             $importaCotasCompradas = $conexao->prepare("SELECT * from cotas WHERE idSorteio = ".$idSorteio." AND status <= 1");
         } else {
             $importaCotasCompradas = $conexao->prepare("SELECT * from cotas WHERE status <= 1");  
         }
+
         $importaCotasCompradas->execute();
         $importaCotasCompradas = $importaCotasCompradas->fetchAll();
-    }catch (PDOWException $erro){ echo $erro;}
+
+    } catch (PDOWException $erro){ echo $erro;}
 
     $sorteados = [];
 
-    foreach($importaCotasCompradas as $value){
-        if($statusSorteio != 1){
+    foreach ($importaCotasCompradas as $value) {
+
+        if ($statusSorteio != 1) {
             header("Location: ?cotas-excedidas");
-        }else {
+        } else {
             array_push($sorteados, $value['cotas'].", ");
         }
+        
     }
+
     $sorteados = implode($sorteados, "");
 ?>
 <script>
@@ -64,11 +74,11 @@
         }
 
         sugestao = ("00000" + sugestao).slice(-5)
-
         sorteados.push(sugestao) // adicionar este numero à array de numeros sorteados para futura referência
+
         return sugestao // devolver o numero único
 
-    }
+    }// criarUnico
 
     let preco = <?php echo $preco; ?>;
 
@@ -81,7 +91,6 @@
             div2            = document.querySelector('.d2')
             div3            = document.querySelector('.d3')
             personalizado   = document.querySelector('.d4')
-    
     
             opcao1     = document.querySelector('.n1').innerHTML.split("</small>")[1]
             opcao2     = document.querySelector('.n2').innerHTML.split("</small>")[1]
@@ -102,13 +111,13 @@
                 
                 aCotas               = []
                 valor                = (preco * opcao1)
-                participar.innerHTML = 'PARTICIPAR AGORA <i class="bi bi-check-circle"></i>&nbsp; (R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
+                participar.innerHTML = 'CLIQUE AQUI PARA PARTICIPAR!&nbsp;<i class="bi bi-check-circle"></i>&nbsp;(VALOR TOTAL R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
                 qtd                  = valor / preco
     
                 valorInput.setAttribute('value', valor)
                 qtdCotas.setAttribute('value', qtd)
                 
-                for(i = 0; i < qtd; i++){
+                for (i = 0; i < qtd; i++) {
     
                     numero = criarUnico()
                     aCotas.push(numero)
@@ -119,13 +128,13 @@
                 novasCotas = cotas.value.split(",")
                 numerosEscolhidos.innerHTML = ''
     
-                for(i = 0; i < novasCotas.length; i++){
+                for (i = 0; i < novasCotas.length; i++) {
     
                     numerosEscolhidos.innerHTML += '<li>' + novasCotas[i] + '</li>'
     
                 }
     
-                document.querySelector('.efetuar-pagamento').addEventListener("click", function() {
+                document.querySelector('.efetuar-pagamento').addEventListener("click", () => {
     
                     document.querySelector('.qrcode').style.display = 'block'
                     document.querySelector('.efetuar-pagamento').style.display = 'none'
@@ -142,19 +151,19 @@
                 document.querySelector('.w100').setAttribute('src', 'libs/img/pagamentos/1.jpg')
                 document.querySelector('.codPag').setAttribute('value', '00020101021126580014br.gov.bcb.pix013686fec364-80bd-43f4-bef5-c3186b6a3d6c52040000530398654041.605802BR5925Bruno Victor Ferreira Da 6009SAO PAULO622905251G92HTPMYY4BCVQDPX3WDQGW3630437C3')
     
-            });
+            })// div1.addEventListener
     
-            div2.addEventListener("click", function() {
+            div2.addEventListener("click", () => {
     
                 aCotas               = []
                 valor                = (preco * opcao2)
-                participar.innerHTML = 'PARTICIPAR AGORA <i class="bi bi-check-circle"></i>&nbsp; (R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
+                participar.innerHTML = 'CLIQUE AQUI PARA PARTICIPAR!&nbsp;<i class="bi bi-check-circle"></i>&nbsp;(VALOR TOTAL R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
                 qtd                  = valor / preco
     
                 valorInput.setAttribute('value', valor)
                 qtdCotas.setAttribute('value', qtd)
                 
-                for(i = 0; i < qtd; i++){
+                for (i = 0; i < qtd; i++) {
     
                     numero = criarUnico()
                     aCotas.push(numero)
@@ -164,15 +173,14 @@
                 cotas.setAttribute('value', aCotas)
                 novasCotas = cotas.value.split(",")
                 numerosEscolhidos.innerHTML = ''
-                
     
-                for(i = 0; i < novasCotas.length; i++){
+                for (i = 0; i < novasCotas.length; i++) {
     
                     numerosEscolhidos.innerHTML += '<li>' + novasCotas[i] + '</li>'
     
                 }
     
-                document.querySelector('.efetuar-pagamento').addEventListener("click", function() {
+                document.querySelector('.efetuar-pagamento').addEventListener("click", () => {
     
                     document.querySelector('.qrcode').style.display = 'block'
                     document.querySelector('.efetuar-pagamento').style.display = 'none'
@@ -189,18 +197,19 @@
                 document.querySelector('.w100').setAttribute('src', 'libs/img/pagamentos/2.jpg')
                 document.querySelector('.codPag').setAttribute('value', '00020101021126580014br.gov.bcb.pix013686fec364-80bd-43f4-bef5-c3186b6a3d6c52040000530398654044.005802BR5925Bruno Victor Ferreira Da 6009SAO PAULO622905251G92HWAHDTH01GXWFW1JP84416304EDE4')
     
-            });
+            })// div2.addEventListener
     
-            div3.addEventListener("click", function() {
+            div3.addEventListener("click", () => {
+
                 aCotas               = []
                 valor                = (preco * opcao3)
-                participar.innerHTML = 'PARTICIPAR AGORA <i class="bi bi-check-circle"></i>&nbsp; (R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
+                participar.innerHTML = 'CLIQUE AQUI PARA PARTICIPAR!&nbsp;<i class="bi bi-check-circle"></i>&nbsp;(VALOR TOTAL R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
                 qtd                  = valor / preco
     
                 valorInput.setAttribute('value', valor)
                 qtdCotas.setAttribute('value', qtd)
                 
-                for(i = 0; i < qtd; i++){
+                for (i = 0; i < qtd; i++) {
     
                     numero = criarUnico()
                     aCotas.push(numero)
@@ -211,13 +220,13 @@
                 novasCotas = cotas.value.split(",")
                 numerosEscolhidos.innerHTML = ''
                 
-    
-                for(i = 0; i < novasCotas.length; i++){
+                for (i = 0; i < novasCotas.length; i++) {
     
                     numerosEscolhidos.innerHTML += '<li>' + novasCotas[i] + '</li>'
     
                 }
-                document.querySelector('.efetuar-pagamento').addEventListener("click", function() {
+
+                document.querySelector('.efetuar-pagamento').addEventListener("click", () => {
     
                     document.querySelector('.qrcode').style.display = 'block'
                     document.querySelector('.efetuar-pagamento').style.display = 'none'
@@ -233,19 +242,20 @@
     
                 document.querySelector('.w100').setAttribute('src', 'libs/img/pagamentos/3.jpg')
                 document.querySelector('.codPag').setAttribute('value', '00020101021126580014br.gov.bcb.pix013686fec364-80bd-43f4-bef5-c3186b6a3d6c52040000530398654048.005802BR5925Bruno Victor Ferreira Da 6009SAO PAULO622905251G92HXRZN3JJA0HNK1GPA2Z066304B72C')
-            });
+            
+            })// div3.addEventListener
     
-            personalizado.addEventListener("click", function() {
+            personalizado.addEventListener("click", () => {
     
                 aCotas               = []
                 valor                = (preco * opcao4)
-                participar.innerHTML = 'PARTICIPAR AGORA <i class="bi bi-check-circle"></i>&nbsp; (R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
+                participar.innerHTML = 'CLIQUE AQUI PARA PARTICIPAR!&nbsp;<i class="bi bi-check-circle"></i>&nbsp;(VALOR TOTAL R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}) + ')'
                 qtd                  = valor / preco
     
                 valorInput.setAttribute('value', valor)
                 qtdCotas.setAttribute('value', qtd)
                 
-                for(i = 0; i < qtd; i++){
+                for (i = 0; i < qtd; i++) {
     
                     numero = criarUnico()
                     aCotas.push(numero)
@@ -257,13 +267,13 @@
                 numerosEscolhidos.innerHTML = ''
                 
     
-                for(i = 0; i < novasCotas.length; i++){
+                for (i = 0; i < novasCotas.length; i++) {
     
                     numerosEscolhidos.innerHTML += '<li>' + novasCotas[i] + '</li>'
     
                 }
     
-                document.querySelector('.efetuar-pagamento').addEventListener("click", function() {
+                document.querySelector('.efetuar-pagamento').addEventListener("click", () => {
     
                     document.querySelector('.qrcode').style.display = 'block'
                     document.querySelector('.efetuar-pagamento').style.display = 'none'
@@ -279,7 +289,8 @@
     
                 document.querySelector('.w100').setAttribute('src', 'libs/img/pagamentos/4.jpg')
                 document.querySelector('.codPag').setAttribute('value', '00020101021126580014br.gov.bcb.pix013686fec364-80bd-43f4-bef5-c3186b6a3d6c520400005303986540516.005802BR5925Bruno Victor Ferreira Da 6009SAO PAULO622905251G92HZTPJFX7YG65SWFF7PV6K6304DF53')
-            })
+            
+            })// personalizado.addEventListener
     
         }, 1000)
 
@@ -303,12 +314,14 @@
                     aCotas.push(numero)
                     console.log("numero", numero)
                 }
+
                 setTimeout(function () {
                     seqCotas[1].setAttribute('value', aCotas)
                 }, 2000)
+
             })
 
         }// for (e = 0; e < addCotas.length; e++)
-    });
+    })
     
 </script>

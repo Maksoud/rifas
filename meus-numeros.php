@@ -1,6 +1,7 @@
 <?php
     include("config/global.php");
     include("config/home.php");
+    
     $acaoCompra = $_SERVER['QUERY_STRING'];
 ?>
 <!DOCTYPE html>

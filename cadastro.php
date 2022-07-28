@@ -1,17 +1,17 @@
 <?php
     include("config/conexao.php");
 
-    if(isset($_POST['cadastrar'])){
+    if (isset($_POST['cadastrar'])) {
 
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = md5($_POST['senha']);
+        $nome     = $_POST['nome'];
+        $email    = $_POST['email'];
+        $senha    = md5($_POST['senha']);
         $telefone = $_POST['telefone'];
-        $cpf = $_POST['cpf'];
-        $cep = $_POST['cep'];
-        $numero = $_POST['numero'];
-        $bairro = $_POST['bairro'];
-        $data = date('Y-m-d H:i');
+        $cpf      = $_POST['cpf'];
+        $cep      = $_POST['cep'];
+        $numero   = $_POST['numero'];
+        $bairro   = $_POST['bairro'];
+        $data     = date('Y-m-d H:i');
 
         // Conexão com banco de dados para verificação de email existente
         $verificaEmail = $conexao->prepare("SELECT * from usuarios WHERE email='".$email."'");
@@ -19,21 +19,22 @@
         $contarEmail = $verificaEmail->rowCount();
         // Validação de dados
 
-        if($contarEmail == 1){
+        if ($contarEmail == 1) {
             echo '<script language="javascript" type="text/javascript">window.location.href="?3";</script>';
         } else {
             $sql = "INSERT INTO usuarios (nome, email, telefone, senha, cpf, cep, numero, bairro, data, status, nivel) VALUES ('".$nome."', '".$email."', '".$telefone."', '".$senha."', '".$cpf."', '".$cep."', '".$numero."', '".$bairro."', '".$data."', '1', '0');";
         }
+
         $q = $conexao->prepare($sql);		
         $q->execute();
 
-        if($q) {
+        if ($q) {
             header("Location: login.php?criado");
         } else {
             header("Location: cadastro.php");
         }
 
-    }
+    }// if (isset($_POST['cadastrar']))
     
 ?>
 <!DOCTYPE html>

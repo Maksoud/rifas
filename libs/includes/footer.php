@@ -7,7 +7,7 @@
                 <div class="etapas-compra--content">
                 <h5>🔍 Selecione a premiação</h5>
                 <div>
-                    <br />Escolha o prêmio que gostaria de concorrer, verifique a descrição e o regulamento do sorteio. Em caso de dúvidas entre em contato com o suporte.
+                    Escolha o prêmio que gostaria de concorrer, verifique a descrição e o regulamento do sorteio. Em caso de dúvidas entre em contato com o suporte.
                 </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="etapas-compra--content">
                 <h5>🔢 Selecione a quantidade de números </h5>
                 <div>
-                    <br />Quanto maior a quantidade de números, maiores são as chances de ganhar.
+                    Quanto maior a quantidade de números, maiores são as chances de ganhar.
                 </div>
                 </div>
             </div>

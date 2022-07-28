@@ -1,9 +1,13 @@
 <?php
     include("config/global.php");
     include("config/home.php");
+
     $acaoCompra = $_SERVER['QUERY_STRING'];
-    if($acaoCompra == 'index' || $acaoCompra == '/' || $acaoCompra == 'index.php'){
+
+    if ($acaoCompra == 'index' || $acaoCompra == '/' || $acaoCompra == 'index.php') {
+
         header("Location: sorteio");
+
     }
 ?>
 <!DOCTYPE html>
@@ -23,41 +27,43 @@
 <body>
     <div id="__next">
         <?php
-            include("libs/includes/header.php");
-            if($acaoCompra == 'aguardando-aprovacao') {
-                echo '<div class="alert alert-success erro alert-dismissible fade show" role="alert">
-                    <strong>Comprovante enviado com sucesso. Aguarde até 1h para confirmação do pagamento.</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>';	
-            }
+        include("libs/includes/header.php");
+        if ($acaoCompra == 'aguardando-aprovacao') {
+            echo '<div class="alert alert-success erro alert-dismissible fade show" role="alert">
+                <strong>Comprovante enviado com sucesso. Aguarde até 1h para confirmação do pagamento.</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>';	
+        }
         ?>
         <div class="container app-main corpo">
             <div class="row">
-               <div class="col-12">
+                <div class="col-12">
                   <div class="app-title">
                      <h1>🏆 Últimos prêmios</h1>
                   </div>
-               </div>
+                </div>
                 <?php 
-                    foreach($importaSorteios as $value){
-                        $value['descricao'] = explode("//", $value['descricao']);
-                        echo '
-                        <div class="col-12 mb-2">
+                foreach ($importaSorteios as $value) {
+                    $value['descricao'] = explode("//", $value['descricao']);
+                    echo '
+                    <div class="col-12 mb-2">
+                        <a href="sorteio?'.$value['id'].'">
                             <div class="SorteioTpl_sorteioTpl__2s2Wu">
                                 <div class="SorteioTpl_imagemContainer__2-pl4">
-                                    <img alt="GOLF SPORTILNE" src="https://cf.shopee.com.br/file/59aa65c1434aa5cb4267394d3e007265"/>
+                                    <img alt="'.$value['titulo'].'" src="https://cf.shopee.com.br/file/59aa65c1434aa5cb4267394d3e007265"/>
                                 </div>
                                 <div class="SorteioTpl_info__t1BZr">
-                                    <h1 class="SorteioTpl_title__3RLtu"><a href="sorteio?'.$value['id'].'">'.$value['titulo'].'</a></h1>
+                                    <h1 class="SorteioTpl_title__3RLtu">'.$value['titulo'].'</h1>
                                     <p class="SorteioTpl_descricao__1b7iL" style="margin-bottom:1px">'.$value['descricao'][0].'</p>
                                     <span class="badge bg-success blink bg-opacity-75 font-xsss">Garantir AGORA !</span>
                                 </div>
                             </div>
-                        </div>
-                        ';
-                    }
+                        </a>
+                    </div>
+                    ';
+                }
                 ?>
                <div class="app-ganhadores mb-2 ">
                     <!-- <div class="col-12">
@@ -66,31 +72,31 @@
                         </div>
                     </div> -->
 
-                    <!-- <?php 
-                        foreach($importaGanhadores as $value){
-                            echo '
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12">
-                                    <div class="ganhadorItem_ganhadorContainer__1Sbxm mb-2">
-                                        <div class="ganhadorItem_ganhadorFoto__324kH">
-                                            <div>
-                                                <img alt="'.$value['nome'].' ganhador do prêmio '.$value['premio'].'" src="libs/img/no-image.jpeg"/>
-                                            </div>
-                                        </div>
-                                        <div class="undefined w-100">
-                                            <h3 class="ganhadorItem_ganhadorNome__2j_J-">'.$value['nome'].'</h3>
-                                            <p class="ganhadorItem_ganhadorDescricao__Z4kO2">
-                                                <b>'.$value['premio'].'</b> cota '.$value['cota'].'
-                                            </p>
+                    <?php 
+                    foreach ($importaGanhadores as $value) {
+                        echo '
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                <div class="ganhadorItem_ganhadorContainer__1Sbxm mb-2">
+                                    <div class="ganhadorItem_ganhadorFoto__324kH">
+                                        <div>
+                                            <img alt="'.$value['nome'].' ganhador do prêmio '.$value['premio'].'" src="libs/img/no-image.jpeg"/>
                                         </div>
                                     </div>
+                                    <div class="undefined w-100">
+                                        <h3 class="ganhadorItem_ganhadorNome__2j_J-">'.$value['nome'].'</h3>
+                                        <p class="ganhadorItem_ganhadorDescricao__Z4kO2">
+                                            <b>'.$value['premio'].'</b> cota '.$value['cota'].'
+                                        </p>
                                     </div>
                                 </div>
+                                </div>
                             </div>
-                            ';
-                        }
-                    ?> -->
+                        </div>
+                        ';
+                    }
+                    ?>
                </div>
                <section class="content">                    
                     <div class="accordion">
