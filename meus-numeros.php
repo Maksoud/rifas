@@ -31,11 +31,11 @@
                 <table class="table table-dark text-center table-responsive">
                     <thead>
                         <tr>
-                            <th scope="row">Código</th>
-                            <th>Sorteio</th>
-                            <th>Cotas</th>
-                            <th>Status</th>
-                            <th>Pagamento</th>
+                            <th class="col-xs-1" scope="col">Código</th>
+                            <th class="col-xs-2">Sorteio</th>
+                            <th class="col">Cotas</th>
+                            <th class="col-xs-3">Status</th>
+                            <th class="col-xs-1">Pagamento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +66,7 @@
                                         <tr>
                                             <th class="text-nowrap" scope="row">'.$value['id'].'</th>
                                             <td>'.$sorteios['titulo'].'</td>
-                                            <td class="mw-100 text-break">'.implode(", ", $cotas).'</td>
+                                            <td class="text-break">'.implode(", ", $cotas).'</td>
                                             <td class="text-nowrap">'.$sorteios['status'].'</td>
                                             <td class="text-nowrap">'.$value['status'].'</td>
                                         </tr>

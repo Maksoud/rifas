@@ -96,7 +96,7 @@
                                     Quantidade restante disponível &nbsp;&nbsp;<span class="badge bg-success blink bg-opacity-75 font-xsss">Garantir AGORA!</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger progress-bar-striped fw-bold progress-bar-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">95%</div>
+                                    <div class="progress-bar bg-danger progress-bar-striped fw-bold progress-bar-animated" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width: 98%;">98%</div>
                                 </div>
                             </div>
                         </div>
