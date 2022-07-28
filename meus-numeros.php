@@ -28,58 +28,60 @@
                         <h1>🛒 Meus números</h1>
                     </div>
                 </div><br>
-                <table class="table table-dark text-center table-responsive">
-                    <thead>
-                        <tr>
-                            <th class="col-xs-1" scope="col">Código</th>
-                            <th class="col-xs-2">Sorteio</th>
-                            <th class="col">Cotas</th>
-                            <th class="col-xs-3">Status</th>
-                            <th class="col-xs-1">Pagamento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($importaCotas as $value) {
+                <div class="table-responsive">
+                    <table class="table table-dark text-center">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1" scope="col">Código</th>
+                                <th class="col-xs-2" scope="col">Sorteio</th>
+                                <th class="col-xs-5" scope="col">Cotas</th>
+                                <th class="col-xs-3" scope="col">Status</th>
+                                <th class="col-xs-1" scope="col">Pagamento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($importaCotas as $value) {
 
-                            $cotas = explode(",", $value['cotas']);
+                                $cotas = explode(",", $value['cotas']);
 
-                            foreach ($importaSorteios as $sorteios) {
+                                foreach ($importaSorteios as $sorteios) {
 
-                                if ($value['idSorteio'] == $sorteios['id'] && $value['idComprador'] == $id) {
+                                    if ($value['idSorteio'] == $sorteios['id'] && $value['idComprador'] == $id) {
 
-                                    if ($sorteios['status'] == 1) {
-                                        $sorteios['status'] = "Em andamento";
-                                    } else if($sorteios['status'] == 2) {
-                                        $sorteios['status'] = "Concluído";
-                                    }
+                                        if ($sorteios['status'] == 1) {
+                                            $sorteios['status'] = "Em andamento";
+                                        } else if($sorteios['status'] == 2) {
+                                            $sorteios['status'] = "Concluído";
+                                        }
 
-                                    if ($value['status'] == 0) {
-                                        $value['status'] = "Pendente";
-                                    } else if ($value['status'] == 1) {
-                                        $value['status'] = "Aprovado";
-                                    } else if ($value['status'] == 2) {
-                                        $value['status'] = "Expirado";
-                                    }
+                                        if ($value['status'] == 0) {
+                                            $value['status'] = "Pendente";
+                                        } else if ($value['status'] == 1) {
+                                            $value['status'] = "Aprovado";
+                                        } else if ($value['status'] == 2) {
+                                            $value['status'] = "Expirado";
+                                        }
 
-                                    echo '
-                                        <tr>
-                                            <th class="text-nowrap" scope="row">'.$value['id'].'</th>
-                                            <td>'.$sorteios['titulo'].'</td>
-                                            <td class="text-break">'.implode(", ", $cotas).'</td>
-                                            <td class="text-nowrap">'.$sorteios['status'].'</td>
-                                            <td class="text-nowrap">'.$value['status'].'</td>
-                                        </tr>
-                                    ';
+                                        echo '
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">'.$value['id'].'</th>
+                                                <td>'.$sorteios['titulo'].'</td>
+                                                <td class="text-break">'.implode(", ", $cotas).'</td>
+                                                <td class="text-nowrap">'.$sorteios['status'].'</td>
+                                                <td class="text-nowrap">'.$value['status'].'</td>
+                                            </tr>
+                                        ';
 
-                                }// if ($value['idSorteio'] == $sorteios['id'] && $value['idComprador'] == $id)
+                                    }// if ($value['idSorteio'] == $sorteios['id'] && $value['idComprador'] == $id)
 
-                            }// foreach ($importaSorteios as $sorteios)
+                                }// foreach ($importaSorteios as $sorteios)
 
-                        }// foreach ($importaCotas as $value)
-                        ?>
-                    </tbody>
-                </table>
+                            }// foreach ($importaCotas as $value)
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         <?php include("libs/includes/footer.php"); ?>
     </div>
